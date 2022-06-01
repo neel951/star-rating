@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import StarRating from './components/StarRating';
 
 function App() {
+
+  function handleClickEvent(){
+    console.log("USER CLICKED!");
+  }
+
+  function handleBlurEvent(){
+    console.log("USER BLURED");
+  }
+  
+  function handleInputEvent(){
+    console.log("USER INPUT!");
+  }
+
+  function handleFocusEvent(){
+    console.log("USER FOCUSED!");
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StarRating
+        mode={"edit"}
+        starColor={"yellow"}
+        numberOfStars={5}
+        initiallySelectedStars={2}
+        starMargin={"5px"}
+        clickEvent={handleClickEvent}
+        blurEvent={handleBlurEvent}
+        inputEvent={handleInputEvent}
+        focusEvent={handleFocusEvent}
+        maxCharLength={15}
+      />
     </div>
   );
 }
